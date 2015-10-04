@@ -1,6 +1,5 @@
 angular.module('legal-kosher.about', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
@@ -27,9 +26,9 @@ angular.module('legal-kosher.about', [
 
   $http({
     method: 'GET',
-    url: 'http://127.0.0.1:8008/mySweetData'
+    url: 'http://codecaptain.co/assets/data.json'
   }).then(function successCallback(res) {
-    var dataObj = JSON.parse(res.data.data)
+    var dataObj = res.data;
     $scope.newData = dataObj;
   }, function errorCallback(res) {
     console.log('U DUN FUGGED UP');

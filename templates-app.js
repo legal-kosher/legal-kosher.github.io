@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.tpl.html', 'home/home.tpl.html']);
+angular.module('templates-app', ['about/about.tpl.html', 'home/home.tpl.html', 'settings/settings.tpl.html']);
 
 angular.module("about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.tpl.html",
@@ -55,6 +55,85 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "  </div>\n" +
     "\n" +
     "</div>\n" +
+    "\n" +
+    "");
+}]);
+
+angular.module("settings/settings.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("settings/settings.tpl.html",
+    "<script type=\"text/ng-template\" id=\"field_renderer.html\">\n" +
+    "</script>\n" +
+    "<h1>Settings</h1>\n" +
+    "<h4>Select which licenses are accepted</h4>\n" +
+    "\n" +
+    "<div class=\"container-fluid\">\n" +
+    "    <div class=\"row vertical-buffer\">\n" +
+    "        <button type=\"button\" class=\"btn btn-primary\">Add a License</button>\n" +
+    "    </div>\n" +
+    "    <div class=\"row\">\n" +
+    "\n" +
+    "        <div class=\"col-md-4\">\n" +
+    "            <div class=\"panel panel-success\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">Approved</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\" data-drop=\"true\" ng-model='approved' jqyoui-droppable=\"{multiple:true}\">\n" +
+    "                    <div class=\"panel panel-default\"  ng-repeat=\"item in approved\" ng-show=\"item\" data-drag=\"true\" data-jqyoui-options=\"{revert: 'invalid'}\" ng-model=\"approved\" jqyoui-draggable=\"{index: {{$index}},animate:true}\">\n" +
+    "                        <div class=\"panel-body\">\n" +
+    "                            {{item}}\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"col-md-4\">\n" +
+    "            <div class=\"panel panel-danger\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">Not Approved</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\" data-drop=\"true\" ng-model='notApproved' jqyoui-droppable=\"{multiple:true}\">\n" +
+    "                    <div class=\"panel panel-default\"  ng-repeat=\"item in notApproved\" ng-show=\"item\" data-drag=\"true\" data-jqyoui-options=\"{revert: 'invalid'}\" ng-model=\"notApproved\" jqyoui-draggable=\"{index: {{$index}},animate:true}\">\n" +
+    "                        <div class=\"panel-body\">\n" +
+    "                            {{item}}\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"col-md-4\">\n" +
+    "            <div class=\"panel panel-warning\">\n" +
+    "                <div class=\"panel-heading\">\n" +
+    "                    <h3 class=\"panel-title\">Waiting for Approval</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"panel-body\" data-drop=\"true\" ng-model='waitingForApproval' jqyoui-droppable=\"{multiple:true}\">\n" +
+    "                    <div class=\"panel panel-default\"  ng-repeat=\"item in waitingForApproval\" ng-show=\"item\" data-drag=\"true\" data-jqyoui-options=\"{revert: 'invalid'}\" ng-model=\"waitingForApproval\" jqyoui-draggable=\"{index: {{$index}},animate:true}\">\n" +
+    "                        <div class=\"panel-body\">\n" +
+    "                            {{item}}\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"modal fade\">\n" +
+    "  <div class=\"modal-dialog\">\n" +
+    "    <div class=\"modal-content\">\n" +
+    "      <div class=\"modal-header\">\n" +
+    "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n" +
+    "        <h4 class=\"modal-title\">Modal title</h4>\n" +
+    "      </div>\n" +
+    "      <div class=\"modal-body\">\n" +
+    "        <p>One fine body&hellip;</p>\n" +
+    "      </div>\n" +
+    "      <div class=\"modal-footer\">\n" +
+    "        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
+    "        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n" +
+    "      </div>\n" +
+    "    </div><!-- /.modal-content -->\n" +
+    "  </div><!-- /.modal-dialog -->\n" +
+    "</div><!-- /.modal -->\n" +
     "\n" +
     "");
 }]);
